@@ -68,5 +68,16 @@ export const SIGN_UP_VALIDATION_SCHEMA = yup.object({
     .matches(/(?=.*\d.*)/, 'Password must contain digit')
     .matches(/(?=.*[!@#$%^&*.].*)/, 'Password must contain special symbol')
     .matches(LOGIN_FORM_REX_EXP.password, 'Please enter correct password')
+    .required(),
+  passwordConfirmation: yup
+    .string()
+    .oneOf(
+      [yup.ref('password')],
+      'Password confirmation must be equal to password'
+    )
+    .required(),
+  contractType: yup
+    .string()
+    .oneOf(['1', '2'], 'Please select the type of contract')
     .required()
 })

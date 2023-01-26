@@ -1,15 +1,13 @@
 import styles from './Login.module.sass'
 import Input from '../Input/Index'
-import CheckBox from '../CheckBox/Index'
 import { LOGIN_VALIDATION_SCHEMA } from './../../utils/validate/validationSchemas'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 export default function Login () {
   const initialValues = { email: '', password: '', rememberMe: true }
 
-  const handleSubmit = (values, formikBag) => {
-    console.log('Submit form with values:', values)
-    formikBag.resetForm()
+  const handleSubmit = (values, { resetForm }) => {
+    resetForm(initialValues)
   }
 
   const classes = {

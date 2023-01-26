@@ -1,7 +1,8 @@
 import styles from './SignUp.module.sass'
 import Input from '../Input/Index'
-import { SIGN_UP_VALIDATION_SCHEMA } from './../../utils/validate/validationSchemas'
+
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { SIGN_UP_VALIDATION_SCHEMA } from './../../utils/validate/validationSchemas'
 
 export default function SignUp () {
   const initialValues = {
@@ -44,7 +45,7 @@ export default function SignUp () {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        // validationSchema={SIGN_UP_VALIDATION_SCHEMA}
+        validationSchema={SIGN_UP_VALIDATION_SCHEMA}
       >
         <Form className={styles.form}>
           <h1>CREATE AN ACCOUNT</h1>
@@ -54,7 +55,6 @@ export default function SignUp () {
             type='text'
             name='firstName'
             placeholder='First Name'
-            autoFocus
             classes={classes}
           />
           <Input
@@ -62,7 +62,6 @@ export default function SignUp () {
             type='text'
             name='lastName'
             placeholder='Last Name'
-            autoFocus
             classes={classes}
           />
           <Input
@@ -70,7 +69,6 @@ export default function SignUp () {
             type='text'
             name='displayName'
             placeholder='Display Name'
-            autoFocus
             classes={classes}
           />
           <Input
@@ -120,7 +118,7 @@ export default function SignUp () {
             classes={classes}
           />
           <button type='submit'>Create account</button>
-          <snap>By clicking this button, you agree to our </snap>
+          <label>By clicking this button, you agree to our </label>
           <a href='https://www.squadhelp.com/Terms&Conditions'>
             Terms of Service
           </a>
