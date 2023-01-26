@@ -3,7 +3,7 @@ import { Field } from 'formik'
 import React from 'react'
 
 function Input (props) {
-  const { name, label, classes, value, description, ...restProps } = props
+  const { name, label, classes, description, radioValue, ...restProps } = props
   return (
     <Field name={name}>
       {({
@@ -16,16 +16,39 @@ function Input (props) {
           [classes.invalid]: meta.error && meta.touched
         })
 
+        const { type } = restProps
+
+        if (type === 'radio') {
+          return (
+            <label>
+              <input
+                className={inputClassNames}
+                {...restProps}
+                {...field}
+                value={radioValue}
+                checked={field.value === radioValue}
+              />
+              <label>{label} </label>
+              <label>{description} </label>
+
+              {meta.error && meta.touched && (
+                <span className={classes.error}>{meta.error}</span>
+              )}
+            </label>
+          )
+        }
+
         return (
           <label>
             <input
               className={inputClassNames}
               {...restProps}
               {...field}
-              value={value}
+              checked={field.value}
             />
             <label>{label} </label>
             <label>{description} </label>
+
             {meta.error && meta.touched && (
               <span className={classes.error}>{meta.error}</span>
             )}

@@ -4,7 +4,11 @@ import { LOGIN_VALIDATION_SCHEMA } from './../../utils/validate/validationSchema
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 
 export default function Login () {
-  const initialValues = { email: '', password: '', rememberMe: true }
+  const initialValues = {
+    email: '',
+    password: '',
+    rememberMe: false
+  }
 
   const handleSubmit = (values, { resetForm }) => {
     resetForm(initialValues)

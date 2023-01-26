@@ -45,7 +45,7 @@ export default function SignUp () {
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        validationSchema={SIGN_UP_VALIDATION_SCHEMA}
+        //validationSchema={SIGN_UP_VALIDATION_SCHEMA}
       >
         <Form className={styles.form}>
           <h1>CREATE AN ACCOUNT</h1>
@@ -98,7 +98,7 @@ export default function SignUp () {
               label='Join As a Buyer:'
               type='radio'
               name='contractType'
-              value='1'
+              radioValue='1'
               description='I am looking for a Name, Logo or Tagline for my business, brand or product.'
               classes={classes}
             />
@@ -106,7 +106,7 @@ export default function SignUp () {
               label='Join As a Creative or Marketplace Seller'
               type='radio'
               name='contractType'
-              value='2'
+              radioValue='2'
               description='I plan to submit name ideas, Logo designs or sell names in Domain Marketplace.'
               classes={classes}
             />
