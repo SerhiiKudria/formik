@@ -81,3 +81,19 @@ export const SIGN_UP_VALIDATION_SCHEMA = yup.object({
     .oneOf(['1', '2'], 'Please select the type of contract')
     .required()
 })
+
+export const CONTACT_VALIDATION_SCHEMA = yup.object({
+  name: yup
+    .string()
+    .trim()
+    .min(2)
+    .max(64)
+    .required(),
+  phone: yup
+    .string()
+    .length(13)
+    .matches(/^\+\d{12}$/, 'Phone number must correspond pattern +111111111111')
+    .required(),
+  email: yup.string().email(),
+  birthday: yup.date().max(new Date())
+})
