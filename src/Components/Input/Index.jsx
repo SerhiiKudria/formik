@@ -21,7 +21,7 @@ function Input (props) {
 
         if (type === 'radio') {
           return (
-            <label>
+            <label className={styles.radioLabel}>
               <input
                 className={inputClassNames}
                 {...restProps}
@@ -29,9 +29,28 @@ function Input (props) {
                 value={radioValue}
                 checked={field.value === radioValue}
               />
-              <label>{label} </label>
-              <label>{description} </label>
+              <div className={styles.radioGroup}>
+                <span className={styles.radioTitle}>{label} </span>
+                <span className={styles.radioDescription}>{description} </span>
+              </div>
 
+              {meta.error && meta.touched && (
+                <span className={classes.radioError}>{meta.error}</span>
+              )}
+            </label>
+          )
+        } else if (type === 'checkbox') {
+          return (
+            <label className={styles.checkBoxLabel}>
+              <input
+                className={inputClassNames}
+                {...restProps}
+                {...field}
+                checked={field.value}
+              />
+              <span className={styles.description} checked={field.value}>
+                {description}
+              </span>
               {meta.error && meta.touched && (
                 <span className={classes.error}>{meta.error}</span>
               )}
