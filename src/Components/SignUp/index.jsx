@@ -3,6 +3,7 @@ import Input from '../Input/Index'
 
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import { SIGN_UP_VALIDATION_SCHEMA } from './../../utils/validate/validationSchemas'
+import imgLogo from './../Login/logo.png'
 
 export default function SignUp () {
   const initialValues = {
@@ -34,7 +35,7 @@ export default function SignUp () {
         <div className='signup_header'>
           <div className='logo'>
             <a href='/'>
-              <img src='/img/logo.png' />
+              <img src={imgLogo} />
             </a>
           </div>
           <div className='loginButton'>

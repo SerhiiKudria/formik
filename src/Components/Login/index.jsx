@@ -1,7 +1,8 @@
-import styles from './Login.module.sass'
+import styles from './../Login/Login.module.sass'
 import Input from '../Input/Index'
 import { LOGIN_VALIDATION_SCHEMA } from './../../utils/validate/validationSchemas'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import imgLogo from './../Login/logo.png'
 
 export default function Login () {
   const initialValues = {
@@ -22,15 +23,15 @@ export default function Login () {
   }
 
   return (
-    <div>
-      <div className='signup_header'>
-        <div className='logo'>
+    <div className={styles.page}>
+      <div className={styles.login_header}>
+        <div className={styles.logo}>
           <a href='/'>
-            <img src='/img/logo.png' />
+            <img src={imgLogo} />
           </a>
         </div>
-        <div className='loginButton'>
-          <a href='/signup'>Signup</a>
+        <div className={styles.loginButton}>
+          <a href='/signup'>Sign Up</a>
         </div>
       </div>
       <Formik
@@ -55,17 +56,23 @@ export default function Login () {
             classes={classes}
           />
           <Input
-            label='Remember me'
+            description='Remember me'
             type='checkbox'
             name='rememberMe'
             placeholder='Remember me'
             classes={classes}
           />
-          <a href='https://www.squadhelp.com/forgot_password.php'>
+          <a
+            className={styles.forgot}
+            href='https://www.squadhelp.com/forgot_password.php'
+          >
             Forgot password
           </a>
           <button type='submit'>Login</button>
-          <a href='https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?response_type=code&access_type=online&client_id=78274772730-f62839c388e8b785mhfh211vr4ueva08.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.squadhelp.com%2Flogin.php&state&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&approval_prompt=auto&service=lso&o2v=1&flowName=GeneralOAuthFlow'>
+          <a
+            className={styles.btnGoogle}
+            href='https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?response_type=code&access_type=online&client_id=78274772730-f62839c388e8b785mhfh211vr4ueva08.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fwww.squadhelp.com%2Flogin.php&state&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&approval_prompt=auto&service=lso&o2v=1&flowName=GeneralOAuthFlow'
+          >
             Sign in with Google
           </a>
         </Form>

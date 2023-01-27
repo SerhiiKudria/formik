@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import { Field } from 'formik'
 import React from 'react'
+import styles from './../Input/Input.module.sass'
 
 function Input (props) {
   const { name, label, classes, description, radioValue, ...restProps } = props
@@ -39,16 +40,16 @@ function Input (props) {
         }
 
         return (
-          <label>
+          <label className={styles.labelInput}>
             <input
               className={inputClassNames}
               {...restProps}
               {...field}
               checked={field.value}
             />
-            <label>{label} </label>
-            <label>{description} </label>
-
+            <span className={styles.description} checked={field.value}>
+              {description}
+            </span>
             {meta.error && meta.touched && (
               <span className={classes.error}>{meta.error}</span>
             )}
