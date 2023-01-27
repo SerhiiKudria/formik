@@ -55,19 +55,22 @@ export default function Login () {
             placeholder='your password'
             classes={classes}
           />
-          <Input
-            description='Remember me'
-            type='checkbox'
-            name='rememberMe'
-            placeholder='Remember me'
-            classes={classes}
-          />
-          <a
-            className={styles.forgot}
-            href='https://www.squadhelp.com/forgot_password.php'
-          >
-            Forgot password
-          </a>
+          <div className={styles.row}>
+            <Input
+              description='Remember me'
+              type='checkbox'
+              name='rememberMe'
+              placeholder='Remember me'
+              classes={classes}
+            />
+            <a
+              className={styles.forgot}
+              href='https://www.squadhelp.com/forgot_password.php'
+            >
+              Forgot password
+            </a>
+          </div>
+
           <button type='submit'>Login</button>
           <a
             className={styles.btnGoogle}
