@@ -1,0 +1,16 @@
+version: '3'
+services:
+
+  front-react:
+    build:
+      context: .
+
+    environment:
+      NODE_ENV: development
+    volumes:
+      - .:/client
+      - /client/node_modules
+    ports:
+      - "5001:3000"
+
+  
